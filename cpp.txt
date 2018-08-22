@@ -1,0 +1,9 @@
+FROM
+peg_position->board[row][col] = PositionType::NoPeg;
+peg_position->board[row][col + 1] = PositionType::NoPeg;
+peg_position->board[row][col + 2] = PositionType::Peg;
+
+TO
+patches.emplace_back(PositionPatch{ row, col, PositionType::NoP });
+patches.emplace_back(PositionPatch{ row, col + 1, PositionType::NoP });
+patches.emplace_back(PositionPatch{ row, col + 2, PositionType::Peg });
